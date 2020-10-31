@@ -1,0 +1,27 @@
+<mat-card style="position: relative;margin: 5px; padding: 3px;">
+
+  <!-- <div style="position: absolute;top: 20px; left: 200px">
+    <mat-search-bar></mat-search-bar>
+  </div> -->
+
+  <div *ngIf="!file" class="convert-ebcdic-btn">
+
+    <mat-button-toggle-group aria-label="Font Style" (change)="onCodificationChange($event)"
+      name="codificationSelection" [value]="defaultStrategy">
+      <mat-button-toggle matTooltip="Convert to ebcdic" value="ebcdicCodification">Ebcdic</mat-button-toggle>
+      <mat-button-toggle matTooltip="Convert to ASCII" value="ansiCodification">Ansi</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div style="position: absolute;top: 10px; left: 160px">
+      <mat-icon (click)="clearEditor()" matTooltip="Clear editor" class="mat_icon">clear_all</mat-icon>
+    </div>
+
+  </div>
+
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageFired($event)">
+  </mat-paginator>
+  <div id="ebcdicEditor" style="height: 55vh;margin-bottom: 10px;"></div>
+  <mat-divider></mat-divider>
+  <div id="hexEditor" style="height: 23vh; margin-top: 20px;"></div>
+</mat-card>
