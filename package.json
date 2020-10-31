@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href https://raydevs.github.io/ebcdic-editor/ --output-path gh-pages"
+    "deploy": "ng build --prod --base-href https://raydevs.github.io/editor-ebcdic/ --output-path docs"
   },
   "private": true,
   "dependencies": {
