@@ -54,17 +54,5 @@ export class EditorComponent implements OnInit {
     if (this.editor.getEditor().isFocused()) {
       this.codeChange.emit(evt);
     }
-
-    // const Range = ace.require('ace/range')['Range'];
-    // this.editor.getEditor().session.addMarker(
-    //   new Range(0, 0, 2, 100), 'myMarker', 'fullLine'
-    // );
-
-    // this.editor.getEditor().session.setAnnotations([{
-    //   row: 1,
-    //   column: 0,
-    //   text: "Error Message", // Or the Json reply from the par
-    //   type: "error" // also "warning" and "information" 
-    // }]);
   }
 }
