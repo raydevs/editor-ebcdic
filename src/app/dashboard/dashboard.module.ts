@@ -8,12 +8,14 @@ import { SharedModule } from '../shared/shared.module';
 //import { AceEditorModule } from 'ng2-ace-editor';
 import { FormsModule } from '@angular/forms';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
+    FlexLayoutModule,
     NgMatSearchBarModule,
     FormsModule
   ],

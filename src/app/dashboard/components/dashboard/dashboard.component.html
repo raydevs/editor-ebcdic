@@ -18,8 +18,8 @@
 
   </div>
 
-  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-    (page)="onPageFired($event)">
+  <mat-paginator fxHide.xs [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageFired($event)" [showFirstLastButtons]="true">
   </mat-paginator>
   <div id="ebcdicEditor" style="height: 55vh;margin-bottom: 10px;"></div>
   <mat-divider></mat-divider>

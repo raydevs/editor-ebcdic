@@ -9,17 +9,18 @@ import { ToolbarService } from 'src/app/shared/services/toolbar.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { IBM01145Charset } from '../../utils/IBM01145-charset';
 
-
-import * as ace from 'brace';
-import 'brace/mode/text';
-import 'brace/theme/monokai';
 import { MatButtonToggle, MatButtonToggleChange, MatRadioButton, MatRadioChange } from '@angular/material';
 import { ConverterContext } from 'src/app/core/services/converter/converter-context';
 import { EbcdicConverter } from 'src/app/core/services/converter/ebcdic-converter';
 import { ConverterEnum } from 'src/app/core/services/converter/converter.enum';
 import { EditorsData } from 'src/app/core/services/converter/editors-data';
-const Range = ace.acequire('ace/range').Range;
 
+import * as ace from 'brace';
+import 'brace/mode/text';
+import 'brace/theme/monokai';
+
+
+const Range = ace.acequire('ace/range').Range;
 declare let jschardet: any;
 
 @Component({
@@ -171,6 +172,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     } else {
       this.chunks = this.fileReaderService.sliceFile(this.file, this.chunkParts);
       this.length = this.chunks.length;
+      this.converterContext.setStrategy(this.defaultStrategy);
       this.fileReaderService.readChunk(this.chunks[this.currentPage]).then(this.loaded);
     }
   }
@@ -182,8 +184,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   loaded = (result: string) => {
-    this.setHexEditorValue(EbcdicDecoder.convertToHex(result, ' '));
-    this.ebcdicEditor.setValue(EbcdicDecoder.toEBCDIC(this.hexEditor.getValue()));
+    let converted = this.converterContext.process(result, false, true);
+    this.setHexEditorValue(converted.hexData);
+    this.ebcdicEditor.setValue(converted.ebcdicEditorData);
   };
 
   /**
