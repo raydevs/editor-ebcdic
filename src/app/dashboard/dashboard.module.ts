@@ -15,7 +15,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    FlexLayoutModule,
     NgMatSearchBarModule,
     FormsModule
   ],

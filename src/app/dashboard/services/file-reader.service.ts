@@ -11,7 +11,7 @@ export class FileReaderService {
     return await new Response(blob).arrayBuffer();
   }
 
-  async readChunk(chunk): Promise<string> {
+  async readChunk(chunk) {
     const fileSliceBlobStream = await chunk.stream();
     return await this.streamToText(fileSliceBlobStream);
   }

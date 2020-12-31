@@ -8,6 +8,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FileSizePipe } from './pipes/file-size.pipe';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   imports: [
@@ -18,11 +19,14 @@ import { FileSizePipe } from './pipes/file-size.pipe';
   exports: [
     MaterialModule,
     ErrorComponent,
-    FileChooserComponent
+    FileChooserComponent,
+    SearchComponent,
+    FlexLayoutModule
+
   ],
   declarations: [
     ErrorComponent,
-    FileChooserComponent, FileSizePipe
+    FileChooserComponent, FileSizePipe, SearchComponent
   ],
   providers: [
     FileSizePipe,

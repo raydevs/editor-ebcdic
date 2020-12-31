@@ -10,25 +10,25 @@ import { Strategy } from "./strategy";
 })
 export class ConverterContext {
 
-    private strategy: Strategy;
+    private _strategy: Strategy;
 
     constructor(
         private ebcdicConverter: EbcdicConverter,
         private ansiConverter: AnsiConverter
     ) { }
 
-    setStrategy(_strategy: string) {
-        switch (_strategy) {
+    setStrategy(strategy_: string) {
+        switch (strategy_) {
             case ConverterEnum.Ebcdic:
-                this.strategy = this.ebcdicConverter;
+                this._strategy = this.ebcdicConverter;
                 break;
             case ConverterEnum.Ansi:
-                this.strategy = this.ansiConverter;
+                this._strategy = this.ansiConverter;
                 break;
         }
     }
 
-    public process(data: string, isFromEditor?: boolean, isFile?: boolean): EditorsData {
-        return this.strategy.convert(data, isFromEditor, isFile);
+    public process(data: string, isFromEditor?: boolean): EditorsData {
+        return this._strategy.convert(data, isFromEditor);
     }
 }

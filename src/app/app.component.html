@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container" [class.is-mobile]="mobileQuery.matches">
     <mat-toolbar color="primary" class="stoolbar" [class.mat-elevation-z8]="true">
         <button mat-icon-button (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
@@ -8,11 +8,21 @@
         <app-file-chooser (fileChange)='onFileChange($event)'></app-file-chooser>
     </mat-toolbar>
 
-    <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav #snav [mode]="'side'"
+    <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
             fixedTopGap="56">
             <mat-nav-list>
                 <mat-divider></mat-divider>
+                <mat-list-item>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Tamaño fuente</mat-label>
+                        <mat-select [(ngModel)]="selectedFont" name="font">
+                            <mat-option *ngFor="let font of fonts" [value]="font">
+                                {{ font }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-list-item>Item 2</mat-list-item>
                 <mat-divider></mat-divider>

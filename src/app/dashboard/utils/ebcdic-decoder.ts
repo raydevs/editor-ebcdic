@@ -1,6 +1,5 @@
 import { IBM01145Charset } from "./IBM01145-charset";
 import { map } from "./ascii-ebcdic.map";
-import { EBCDIC_ASCII_MAP } from "./ebcdic-ascii.map";
 
 export class EbcdicDecoder {
 
@@ -91,13 +90,13 @@ export class EbcdicDecoder {
             let ebcdicH = hexData.trim().toUpperCase().split(' ');
             ebcdic = ebcdicH.map(hexD => {
                 let hex = map.get(hexD);
-                if(hex) {
+                if (hex) {
                     return hex.padEnd(2);
                 } else {
                     console.log(`Ascii hexadecimal ${hexD} not found`)
                     return '� ';
                 }
-            }).join(' ');  
+            }).join(' ');
         }
         return ebcdic + ' ';
     }

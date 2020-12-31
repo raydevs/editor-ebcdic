@@ -1,29 +1,19 @@
-.convert-ebcdic-btn{
-    position: absolute;
-    left: 5px;
-    top: 15px;
-    z-index: 2;
-}
-
-.editor-actons {
-    min-width: 50px !important;
-}
-
-.bar{
-    position:absolute;
-    background:rgba(100,100,200,0.5);
-    z-index:200; /*width:2px!important*/
-  }
-
 .mat_icon:hover {
     cursor: pointer;
 }
 
-/**
-.warning::before{
-    position:absolute;
-    background:rgba(100,100,200,0.5);
-    z-index:999;
-    top: -100%; content: 'Khoa Ma'; left:0px; font-family: Arial; padding:1px 2px
+/**toolbar-temp styles*/
+.editor-tools-bar {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    /*height: 20px;*/
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    width: 100%;
+    white-space: nowrap;
 }
-*/
+
+.editor-tools {
+    display: inherit;
+}
